@@ -18,8 +18,11 @@ def replace_letter(word, morse, alphabet):
     index = 0
     morse_code = ""
     for n in range(0, len(word)):
-        morse_code += morse[index_finder(word, morse, alphabet, index)] + " "
-        index += 1
+        if word[n] in alphabet:
+            morse_code += morse[alphabet.index(word[n])] + " "
+            index += 1
+        elif word[n] not in alphabet:
+            morse_code = morse_code + word[n]
     return morse_code
 
 
